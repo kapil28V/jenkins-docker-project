@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
 	agent any
 
 	stages{
@@ -16,14 +16,14 @@ pipeline {
 	{BUILD_NUMBER}.'
 		}
 	}
-STAGE('Remove Old Container'){
+	stage('Remove Old Container'){
 	steps{
 	sh'docker rm -f my-devops-container ||true'
 	}
 	}
 
 	stage('Run Docker Container'){
-	steps {
+	steps{
 	sh'docker run -d -p 8081:80 --name my-devops-container my devops-app:$
 	{BUILD_NUMBER}
 	}	
