@@ -25,7 +25,7 @@ pipeline{
 	stage('Run Docker Container'){
 	steps{
 	sh'docker run -d -p 8081:80 --name my-devops-container my devops-app:$
-	{BUILD_NUMBER}
+	{BUILD_NUMBER}.'
 	}	
 	}
 
